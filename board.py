@@ -1,6 +1,6 @@
-import random
 import pygame
 import helper
+import secrets
 
 
 #   This class defines the board environment
@@ -237,12 +237,12 @@ class Snake:
         max_x = (helper.DISPLAY_SIZE - helper.WALL_SIZE - helper.GRID_SIZE)
         max_y = (helper.DISPLAY_SIZE - helper.WALL_SIZE - helper.GRID_SIZE)
         
-        self.food_x = random.randint(helper.WALL_SIZE, max_x)//helper.GRID_SIZE * helper.GRID_SIZE
-        self.food_y = random.randint(helper.WALL_SIZE, max_y)//helper.GRID_SIZE * helper.GRID_SIZE
+        self.food_x = secrets.SystemRandom().randint(helper.WALL_SIZE, max_x)//helper.GRID_SIZE * helper.GRID_SIZE
+        self.food_y = secrets.SystemRandom().randint(helper.WALL_SIZE, max_y)//helper.GRID_SIZE * helper.GRID_SIZE
 
         while self.check_food_on_snake():
-            self.food_x = random.randint(helper.WALL_SIZE, max_x)//helper.GRID_SIZE * helper.GRID_SIZE
-            self.food_y = random.randint(helper.WALL_SIZE, max_y)//helper.GRID_SIZE * helper.GRID_SIZE
+            self.food_x = secrets.SystemRandom().randint(helper.WALL_SIZE, max_x)//helper.GRID_SIZE * helper.GRID_SIZE
+            self.food_y = secrets.SystemRandom().randint(helper.WALL_SIZE, max_y)//helper.GRID_SIZE * helper.GRID_SIZE
 
     #   This is a helper function that checks if the newly cleated food is on the snake
     def check_food_on_snake(self):
